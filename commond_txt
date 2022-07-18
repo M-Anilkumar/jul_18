@@ -1,0 +1,36 @@
+#Installing the nginx 
+sudo apt-get install naginx
+#location where the nginx is located with path
+cd /etc/nginx/
+#the folders are file in nginx are
+ls
+#o/p
+# conf.d        fastcgi_params  koi-win     modules-available  nginx.conf    scgi_params      sites-enabled  uwsgi_params
+# fastcgi.conf  koi-utf         mime.types  modules-enabled    proxy_params  sites-available  snippets       win-utf
+cd /etc/nginx/sites-available/
+#here we find the server name and on which port it is running and default file_names
+#we also made changes ie:port as 5658 etc
+#to start nginx
+sudo systemctl start nginx
+#to check the status of nginx
+sudo systemctl status nginx
+#path to reach the default configuration file
+vim /etc/nginx/sites-available/default
+#to check logs
+sudo nginx -t
+#to restart the nginx 
+sudo systemctl restart nginx
+#to reload 
+sudo nginx -s reload
+#path from where the index.html is executing
+cd /var/www/html
+#to stop nginx
+sudo systemctl stop nginx
+#about directives
+1.block directives
+2.simple directives
+#command to return
+default_type text/html
+return 200 "Mantra"
+#I learned about
+event,http,servers,location,returns,server_name
